@@ -14,9 +14,14 @@ require "action_view/railtie"
 require "action_cable/engine"
 # require "rails/test_unit/railtie"
 
+require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+if defined?(Rails::Server) && Rails.env.development?
+  require "debug/open_nonstop"
+end
 
 module EasyDocs
   class Application < Rails::Application
