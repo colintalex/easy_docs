@@ -69,3 +69,8 @@ end
 
 
 gem "foreman", "~> 0.87.2"
+
+gem "acts_as_list", "~> 1.1"
+
+gem "redcarpet", "~> 3.6"
+gem "rouge", "~> 4.1"

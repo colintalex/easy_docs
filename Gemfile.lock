@@ -66,6 +66,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    acts_as_list (1.1.0)
+      activerecord (>= 4.2)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -151,9 +153,11 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redcarpet (3.6.0)
     redis (4.8.1)
     reline (0.3.3)
       io-console (~> 0.5)
+    rouge (4.1.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -185,6 +189,7 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  acts_as_list (~> 1.1)
   bootsnap
   cssbundling-rails
   debug
@@ -194,7 +199,9 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
+  redcarpet (~> 3.6)
   redis (~> 4.0)
+  rouge (~> 4.1)
   sprockets-rails
   stimulus-rails
   turbo-rails
