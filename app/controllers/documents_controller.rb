@@ -8,16 +8,22 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.save
-    
-    redirect_to(document_path(@document))
+
+    render turbo_stream: turbo_stream.prepend(
+        "documents",
+        partial: "documents/document",
+        locals: { document: @document }
+      )
   end
 
   def destroy
     @document.destroy
-    redirect_to(documents_path) 
+    render turbo_stream: turbo_stream.remove("document_#{@document.id}")
   end
 
-  def show;end
+  def show
+    @document
+  end
   private
   
   def set_document

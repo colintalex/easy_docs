@@ -1,24 +1,41 @@
-turbo-frame {
-  outline: auto !important;
+body {
+  width: 100%;
 }
+
+turbo-frame {
+  // outline: auto !important;
+}
+
+#header {
+  a{
+    color: whitesmoke;
+    text-decoration: none;
+  }
+}
+
 .hiddenn {
   display: none !important;
 }
 
 .card_grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: fit-content;
+    margin: auto;
+    grid-column-gap: 30px;
+    grid-row-gap: 20px;
 
   .doc_card {
     width: 300px !important;
-    height: 200px !important;
+    height: 300px !important;
     text-align: center;
     margin: 5px 10px
   }
 }
 
 .add-fragment {
-  opacity: 0;
+  font-size: 12px;
+  opacity: 0.1;
   position: relative;
   height: 5px;
   left: -50px;

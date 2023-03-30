@@ -1,0 +1,10 @@
+<div class='mb-3 doc_form'>
+<%= form_with model: document do |form| %>
+  <%= form.label :title, class: 'form-label float-start' %>
+  <%= form.text_field :title, id: :title, class: 'form-control' %>
+  <%= form.label :note, class: 'form-label float-start' %>
+  <%= form.text_field :note, id: :note, class: 'form-control' %>
+  <%= form.submit 'Create', class: 'btn btn-secondary mt-3', data: {'controller': 'add-doc', 'action': 'click->add-doc#save'} %>
+  <%= form.button 'Cancel', class: 'btn btn-secondary mt-3' %>
+<% end %>
+</div>

@@ -22,7 +22,7 @@ class Fragment < ApplicationRecord
     "ol" => "%{data}",
     "ul" => "%{data}",
     "pre" => "```%{meta}\n%{data}\n```",
-    "img" => "![%{meta}](%{data})"
+    "image" => "%{data}"
   }.freeze
 
   def to_md
