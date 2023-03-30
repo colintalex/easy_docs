@@ -5,12 +5,22 @@
 
 <section class="section">
   <div class="article container">
+    <div class="fragments-container" data-controller="sortable">
     <% if @document.fragments.empty?  %>
       <%= render "fragments/new", position: 0 %>
     <% end%>
     <% @document.fragments.each do |fragment| %>
-      <%= render fragment %>
-      <%= render "fragments/new", position: fragment.position %>
+        <div class="fragment-button-container">
+      <button
+      class="button is-small is-light is-round"
+      data-action="click->change-fragment#showMenu">
+      <i class="gg-chevron-down"></i>
+      </button>
+      <span class="button is-outlined is-round is-small handle ml-2"><i class="gg-controller"></i></span>
+        <%= render fragment %>
+        <%= render "fragments/new", position: fragment.position %>
+      </div>
     <% end %>
+    </div>
   </div>
 </section>
