@@ -1,5 +1,18 @@
+# == Schema Information
+#
+# Table name: fragments
+#
+#  id         :bigint           not null, primary key
+#  data       :string
+#  element    :string
+#  meta       :string
+#  position   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Fragment < ApplicationRecord
-  acts_as_list
+  belongs_to :document
+  acts_as_list scope: :document
 
   MD_MAPPING = {
     "h1" => "# %{data}",

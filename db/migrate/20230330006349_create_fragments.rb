@@ -1,10 +1,11 @@
 class CreateFragments < ActiveRecord::Migration[7.0]
   def change
     create_table :fragments do |t|
-      t.string :element
-      t.string :data
+      t.string :element, null: false, default: "p"
+      t.string :data, null: false, default: ""
       t.integer :position
-      t.string :meta
+      t.string :meta, default: ""
+      t.references :document
 
       t.timestamps
     end

@@ -68,6 +68,9 @@ GEM
       tzinfo (~> 2.0)
     acts_as_list (1.1.0)
       activerecord (>= 4.2)
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -190,6 +193,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list (~> 1.1)
+  annotate
   bootsnap
   cssbundling-rails
   debug
@@ -212,4 +216,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.4.7
+   2.3.24

@@ -10,17 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_29_231612) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_30_006349) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "fragments", force: :cascade do |t|
-    t.string "element"
-    t.string "data"
-    t.integer "position"
-    t.string "meta"
+  create_table "documents", force: :cascade do |t|
+    t.string "title"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "fragments", force: :cascade do |t|
+    t.string "element", default: "p", null: false
+    t.string "data", default: "", null: false
+    t.integer "position"
+    t.string "meta", default: ""
+    t.bigint "document_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_fragments_on_document_id"
   end
 
 end

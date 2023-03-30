@@ -1,0 +1,11 @@
+<h1>Documents</h1>
+
+<% @documents.each do |doc| %>
+  <div class="card doc_card">
+    <div class="card-body">
+      <h5 class="card-title"><%= doc.title %></h5>
+      <p class="card-text"><%= doc.note %></p>
+      <%= link_to 'View This Document', document_path(doc), class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

@@ -7,5 +7,8 @@ import { application } from "./application"
 import EditableController from "./editable_controller"
 application.register("editable", EditableController)
 
+import FormatController from "./format_controller"
+application.register("format", FormatController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

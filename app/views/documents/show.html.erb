@@ -1,0 +1,14 @@
+<h1>Document Show Page</h1>
+
+<p>Title:</p>
+<p><%= @document.title %></p>
+<p>Notes:</p>
+<p><%= @document.note %></p>
+
+<section class="section">
+  <div class="article container">
+    <% @document.fragments.each do |fragment| %>
+      <%= render fragment %>
+    <% end %>
+  </div>
+</section>
