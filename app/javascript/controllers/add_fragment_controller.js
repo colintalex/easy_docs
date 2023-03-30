@@ -4,7 +4,6 @@ import { show_add_fragment_menu } from "../lib/add_fragment_menu";
 export default class extends Controller {
   showMenu(event) {
     event.preventDefault();
-    debugger
     show_add_fragment_menu(this.element.querySelector("button"));
   }
 

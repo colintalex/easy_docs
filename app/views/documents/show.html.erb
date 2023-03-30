@@ -1,14 +1,16 @@
-<h1>Document Show Page</h1>
-
-<p>Title:</p>
-<p><%= @document.title %></p>
-<p>Notes:</p>
-<p><%= @document.note %></p>
+<div class="card bg-secondary mb-5 p-3">
+  <h1>Title: <%= @document.title %></h1>
+  <h5>Notes: <%= @document.note %></h5>
+</div>
 
 <section class="section">
   <div class="article container">
+    <% if @document.fragments.empty?  %>
+      <%= render "fragments/new", position: 0 %>
+    <% end%>
     <% @document.fragments.each do |fragment| %>
       <%= render fragment %>
+      <%= render "fragments/new", position: fragment.position %>
     <% end %>
   </div>
 </section>

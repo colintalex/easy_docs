@@ -1,11 +1,48 @@
 <h1>Documents</h1>
 
-<% @documents.each do |doc| %>
+<div class="card_grid">
   <div class="card doc_card">
     <div class="card-body">
-      <h5 class="card-title"><%= doc.title %></h5>
-      <p class="card-text"><%= doc.note %></p>
-      <%= link_to 'View This Document', document_path(doc), class: 'btn btn-primary' %>
+      <h5>Add New Document</h5>
+        <div data-controller="add-doc" data-action="click->add-doc#showNewCard">
+          <i id="add_new_doc_btn"class="fa fa-plus"></i>
+          <div id="form_wrapper" class="hiddenn">
+            <%= form_with model: Document.new do |form| %>
+              <%= form.label :title %>
+              <%= form.text_field :title, id: :title %>
+              <%= form.label :note %>
+              <%= form.text_field :note, id: :note %>
+              <%= form.submit "Create", hidden: true %>
+               <button class="button is-light is-round" data-controller="add-doc" data-action="click->add-doc#save">
+                Save
+              </button>
+            <% end %>
+            <button class="btn btn-secondary" data-controller="add-doc" data-action="click->add-doc#cancelNewCard">
+              Cancel
+            </button>
+          </div>
+        </div>
     </div>
   </div>
-<% end %>
+
+  <% @documents.each do |doc| %>
+    <div class="card doc_card">
+      <div class="card-body">
+        <h5 class="card-title"><%= doc.title %></h5>
+        <p class="card-text"><%= doc.note %></p>
+        <%= link_to 'View This Document', document_path(doc), class: 'btn btn-primary' %>
+      </div>
+        <%= link_to(
+          document_path(doc),
+          method: :delete,
+          data: {
+            turbo_method: :delete,
+            turbo_frame: :fragments
+          },
+          hidden: false
+         ) do  %>
+          <i class="fa fa-trash red float-end"></i>
+         <% end%>
+    </div>
+  <% end %>
+</div>

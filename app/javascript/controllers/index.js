@@ -4,6 +4,12 @@
 
 import { application } from "./application"
 
+import AddDocController from "./add_doc_controller"
+application.register("add-doc", AddDocController)
+
+import AddFragmentController from "./add_fragment_controller"
+application.register("add-fragment", AddFragmentController)
+
 import EditableController from "./editable_controller"
 application.register("editable", EditableController)
 
@@ -12,3 +18,6 @@ application.register("format", FormatController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import SortableController from "./sortable_controller"
+application.register("sortable", SortableController)

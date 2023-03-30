@@ -75,3 +75,5 @@ gem "acts_as_list", "~> 1.1"
 
 gem "redcarpet", "~> 3.6"
 gem "rouge", "~> 4.1"
+
+gem "pry", "~> 0.14.2"

@@ -21,7 +21,6 @@ export default class extends Controller {
   }
 
   keyDown(event) {
-    console.log(event.keyCode)
     if (event.keyCode == 13) {
       event.preventDefault();
       this.element.removeAttribute("contenteditable");

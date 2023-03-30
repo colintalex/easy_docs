@@ -1,6 +1,20 @@
-.doc_card {
-  width: 300px;
-  text-align: center;
+turbo-frame {
+  outline: auto !important;
+}
+.hiddenn {
+  display: none !important;
+}
+
+.card_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  .doc_card {
+    width: 300px !important;
+    height: 200px !important;
+    text-align: center;
+    margin: 5px 10px
+  }
 }
 
 .add-fragment {

@@ -4,7 +4,7 @@
       model: [@document, Fragment.new(
         element: "p",
         data: "edit me",
-        position: (fragment.position + 1))]) do |form| %>
+        position: (position + 1))]) do |form| %>
       <%= form.text_field :data, hidden: true %>
       <%= form.text_field :element, hidden: true %>
       <%= form.text_field :meta, hidden: true %>
