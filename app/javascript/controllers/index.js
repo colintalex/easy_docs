@@ -10,6 +10,9 @@ application.register("add-doc", AddDocController)
 import AddFragmentController from "./add_fragment_controller"
 application.register("add-fragment", AddFragmentController)
 
+import ChangeFragmentController from "./change_fragment_controller"
+application.register("change-fragment", ChangeFragmentController)
+
 import EditableController from "./editable_controller"
 application.register("editable", EditableController)
 

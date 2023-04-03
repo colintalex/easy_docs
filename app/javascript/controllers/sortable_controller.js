@@ -9,6 +9,9 @@ export default class extends Controller {
       invertSwap: true,
       animation: 150,
       onEnd: this.moved.bind(this),
+      handle: '.handle',
+      onStart: function (evt) {
+      }
     });
   }
 

@@ -13,6 +13,11 @@ turbo-frame {
   }
 }
 
+#doc_grid {
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+
 .being-dragged {
   .fragment {
     position: relative;

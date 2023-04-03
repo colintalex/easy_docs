@@ -50,5 +50,6 @@ export default class extends Controller {
       .querySelector("form")
       .querySelector('input[type="submit"]')
       .click();
+    
   }
 }

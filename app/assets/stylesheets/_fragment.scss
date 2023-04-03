@@ -1,15 +1,49 @@
 @import './variables.scss';
 
-.fragment {
-  padding: 0.25em 0.5em;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  display: inline-block;
-  width: calc(100% - $fragment_btn_width);
+
+.draggable {
+  turbo-frame {
+    display: flex;
+    flex-direction: row;
+
+    .fragment-button-container {
+      display: inline-flex;
+      height: fit-content;
+      margin: auto;
+      // opacity: 0;
+
+      .active {
+        opacity: 1;
+      }
+  
+      button {
+        height: 24px;
+        width: 24px;
+        padding: 0;
+        margin: 5px;
+        font-size: 12px;
+        border-radius: 100%;
+      }
+    }
+  }
+
+  .fragment {
+    padding: 0.25em 0.5em;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    display: inline-flex;
+    width: calc(100% - $fragment_btn_width);
+  }
 }
 
-.fragment-button-container {
-  display: inline-block;
-  height: auto;
-  width: fragment_btn_width;
+.change-fragment-menu {
+  background-color: aqua;
+  font-size: 12px !important;
+  padding: 5px;
+  
+  .dropdown-content {
+    a {
+      margin: 5px 0;
+    }
+  }
 }

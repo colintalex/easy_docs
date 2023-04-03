@@ -1,21 +1,38 @@
-<%= turbo_frame_tag dom_id(fragment) do %>
-  <div class="fragment <%= fragment.element %>"
-      data-controller="editable"
-      data-action="
-      click->editable#click
-      blur->editable#blur
-      keydown->editable#keyDown
-      mouseup->editable#mouseUp
-      mousedown->editable#mouseDown">
-    <%= fragment.render %>
+<div class="draggable">
+  <%= turbo_frame_tag dom_id(fragment) do %>
 
-    <%= form_with model: [@document, fragment] do |form| %>
-      <%= form.text_field :data, id: :data, hidden: true %>
-      <%= form.text_field :element, id: :element, hidden: true %>
-      <%= form.text_field :meta, id: :meta, hidden: true %>
-      <%= form.number_field :position, id: :position, hidden: true %>
-      <%= form.submit hidden: true %>
-    <% end %>
-  </div>
+    <div class="fragment-wrapper <%= fragment.element %>" data-controller="change-fragment">
+      <div class="fragment-button-container">
+        <button
+        class="frag_menu_btn button is-small is-light is-round"
+        data-action="click->change-fragment#showMenu">
+          <span>
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          </span>
+        </button>
+        <button class="btn btn-secondary">
+          <i class="handle fa fa-up-down"></i>
+        </button>
+      </div>
+      <div class="fragment <%= fragment.element %>"
+          data-controller="editable"
+          data-action="
+          click->editable#click
+          blur->editable#blur
+          keydown->editable#keyDown
+          mouseup->editable#mouseUp
+          mousedown->editable#mouseDown">
+        <%= fragment.render %>
 
-<% end %>
+        <%= form_with model: [@document, fragment] do |form| %>
+          <%= form.text_field :data, id: :data, hidden: true %>
+          <%= form.text_field :element, id: :element, hidden: true %>
+          <%= form.text_field :meta, id: :meta, hidden: true %>
+          <%= form.number_field :position, id: :position, hidden: true %>
+          <%= form.submit hidden: true %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <%= render "fragments/new", position: fragment.position %>
+</div>

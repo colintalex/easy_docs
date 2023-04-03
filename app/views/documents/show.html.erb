@@ -1,26 +1,17 @@
-<div class="card bg-secondary mb-5 p-3">
-  <h1>Title: <%= @document.title %></h1>
-  <h5>Notes: <%= @document.note %></h5>
-</div>
-
-<section class="section">
-  <div class="article container">
-    <div class="fragments-container" data-controller="sortable">
-    <% if @document.fragments.empty?  %>
-      <%= render "fragments/new", position: 0 %>
-    <% end%>
-    <% @document.fragments.each do |fragment| %>
-        <div class="fragment-button-container">
-      <button
-      class="button is-small is-light is-round"
-      data-action="click->change-fragment#showMenu">
-      <i class="gg-chevron-down"></i>
-      </button>
-      <span class="button is-outlined is-round is-small handle ml-2"><i class="gg-controller"></i></span>
-        <%= render fragment %>
-        <%= render "fragments/new", position: fragment.position %>
-      </div>
-    <% end %>
-    </div>
+<div id="doc_grid">
+  <div class="js-toc">
   </div>
-</section>
+  <section class="section">
+    <div class="article container">
+      <div class="bg-secondary mb-5 p-3">
+        <h1>Title: <%= @document.title %></h1>
+        <h5>Notes: <%= @document.note %></h5>
+      </div>
+      <div class="fragments-container" data-controller="sortable">
+        <% @document.fragments.each do |fragment| %>
+          <%= render fragment %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>

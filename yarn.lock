@@ -226,6 +226,11 @@
   dependencies:
     "is-number" "^7.0.0"
 
+"tocbot@^4.20.1":
+  "integrity" "sha512-as1pH/qL0EL7zmMheK+EaMPPmvC9pzEpR98dA7z4DWemUdySi6Ipnk0WIc6AyQegQ7C2nNDuAL0WIo44poeEUg=="
+  "resolved" "https://registry.npmjs.org/tocbot/-/tocbot-4.20.1.tgz"
+  "version" "4.20.1"
+
 "turndown@^7.1.2":
   "integrity" "sha512-ntI9R7fcUKjqBP6QU8rBK2Ehyt8LAzt3UBT9JR9tgo6GtuKvyUzpayWmeMKJw1DPdXzktvtIT8m2mVXz+bL/Qg=="
   "resolved" "https://registry.npmjs.org/turndown/-/turndown-7.1.2.tgz"
