@@ -4,6 +4,7 @@ import { turndownService } from "../lib/turndown_service"
 import rangy from "rangy";
 import "rangy/lib/rangy-textrange";
 import { show_format_selection_menu } from "../lib/context_menus";
+import tocbot from "tocbot";
 
 
 export default class extends Controller {
@@ -33,7 +34,8 @@ export default class extends Controller {
 
     // // Dynamically fill out the form data and submit
     this.element.querySelector("#data").value = markdown
-    this.element.querySelector("form").requestSubmit()
+    this.element.querySelector("form").requestSubmit();
+    tocbot.refresh();
   }
 
   mouseDown(event) {

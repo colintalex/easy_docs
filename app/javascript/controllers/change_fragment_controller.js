@@ -60,7 +60,6 @@ export default class extends Controller {
   }
 
   change_to(element, meta = "") {
-    console.log(this.element.querySelector("form"));
     this.element.querySelector("#element").value = element;
     this.element.querySelector("#meta").value = meta;
 

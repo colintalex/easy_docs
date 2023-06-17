@@ -12,6 +12,13 @@ module MarkdownRenderer
         css_class: "line-numbers language-#{lexer.tag.strip}",
       )
     end
+
+    def header(text, header_level)
+      # Generate a unique ID based on the header text
+      id = text.downcase.gsub(' ', '-').gsub(/[^\w-]/, '')
+
+      "<h#{header_level} id=\"#{id}\">#{text}</h#{header_level}>"
+    end
   end
 
   def self.md_to_html(content, assigns = {})

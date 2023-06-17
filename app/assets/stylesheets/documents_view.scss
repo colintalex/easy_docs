@@ -1,3 +1,4 @@
+@import 'variables';
 body {
   width: 100%;
 }
@@ -7,6 +8,11 @@ turbo-frame {
 }
 
 #header {
+  position: sticky;
+  top: 0;
+  height: $header_height;
+  z-index: 10;
+  background-color: $header_bg;
   a{
     color: whitesmoke;
     text-decoration: none;
@@ -14,8 +20,26 @@ turbo-frame {
 }
 
 #doc_grid {
-  display: grid;
-  grid-template-columns: 100px auto;
+  display: flex;
+
+  aside.js-toc {
+    padding: 15px;
+    position: sticky;
+    top: $header_height;
+    background: $sidebar_bg;
+    width: 20%;
+    height: calc(100vh - $header_height);
+    overflow-y: visible;
+  }
+
+  main {
+    padding-left: 20px;
+    flex-grow: 1;
+  }
+
+  .fragment {
+    background: rgb(200, 200, 200);
+  }
 }
 
 .being-dragged {
@@ -53,11 +77,12 @@ turbo-frame {
   font-size: 12px;
   opacity: 0.1;
   position: relative;
-  height: 5px;
+  height: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
   transition: opacity 0.25s ease;
+  margin-bottom: 10px;
 
   &:hover {
     opacity: 1;
@@ -66,6 +91,7 @@ turbo-frame {
 
   .add-fragment-button-container {
     width: 50px;
+    margin-left: 10px;
   }
 
   .add-fragment-indicator {

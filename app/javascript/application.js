@@ -3,8 +3,6 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
 import "@fortawesome/fontawesome-free/js/all";
-
-
 import tocbot from "tocbot";
 
 tocbot.init({
@@ -14,6 +12,12 @@ tocbot.init({
   contentSelector: ".fragments-container",
   // Which headings to grab inside of the contentSelector element.
   headingSelector: "h1, h2, h3",
+  scrollSmoothOffset: 100,
   // For headings inside relative or absolute positioned containers within content.
   hasInnerContainers: true,
+  headingsOffset: 150
+});
+
+document.documentElement.addEventListener("turbo:frame-load", function (e) {
+  tocbot.refresh();
 });

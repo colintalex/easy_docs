@@ -59,9 +59,9 @@ export function show_change_fragment_menu(element) {
     interactive: true,
     interactiveBorder: 100,
     hideOnClick: true,
-    placement: "bottom",
-    offset: [0, 0],
-    theme: "light",
+    placement: "left",
+    offset: [60, 0],
+    theme: "dark",
     onHidden: (instance) => {
       instance.destroy();
     },
