@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 import { navigator } from "@hotwired/turbo";
 
 import { show_change_fragment_menu } from "../lib/change_fragment_menu";
+import tocbot from "tocbot";
 
 export default class extends Controller {
   fragment_type = "p";
@@ -64,15 +65,17 @@ export default class extends Controller {
     this.element.querySelector("#meta").value = meta;
 
     this.element
-      .querySelector("form")
+      .querySelector(".change-fragment-form")
       .querySelector('input[type="submit"]')
       .click();
   }
 
   delete(event) {
     this.element
-      .querySelector("form.button_to")
-      .querySelector('button[type="submit"]')
-      .click();
+    .querySelector('.delete_link')
+    .click();
+    
+    this.element.parentElement.parentElement.remove();
+    tocbot.refresh();
   }
 }

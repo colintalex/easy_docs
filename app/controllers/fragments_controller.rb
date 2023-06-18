@@ -4,16 +4,21 @@ class FragmentsController < ApplicationController
 
   def update
     @fragment.update(fragment_params)
-    # @fragment.saved = true
 
     render @fragment
   end
 
   def create
-    @fragment = @document.fragments.build(fragment_params)
+    @fragment = @document.fragments.build(fragment_params.except(:dom_id))
     @fragment.save
+    @dom_id = fragment_params[:dom_id]
 
-    redirect_to(document_path(@document))
+    redirect_to(document_path(@document, anchor: @dom_id))
+  end
+
+  def destroy
+    @fragment.destroy
+    render turbo_stream: turbo_stream.remove(@fragment)
   end
 
   private
@@ -27,6 +32,6 @@ class FragmentsController < ApplicationController
   end
 
   def fragment_params
-    params.require(:fragment).permit(:element, :data, :meta, :position, :image)
+    params.require(:fragment).permit(:element, :data, :meta, :position, :image, :dom_id)
   end
 end

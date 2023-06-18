@@ -24,7 +24,7 @@
           mousedown->editable#mouseDown">
         <%= fragment.render %>
 
-        <%= form_with model: [@document, fragment] do |form| %>
+        <%= form_with model: [@document, fragment], class: 'change-fragment-form' do |form| %>
           <%= form.text_field :data, id: :data, hidden: true %>
           <%= form.text_field :element, id: :element, hidden: true %>
           <%= form.text_field :meta, id: :meta, hidden: true %>
@@ -32,7 +32,8 @@
           <%= form.submit hidden: true %>
         <% end %>
       </div>
+      <%= button_to 'delete', [@document, fragment], hidden: true, class: 'delete_link', method: :delete %>
     </div>
   <% end %>
-  <%= render "fragments/new", position: fragment.position %>
+  <%= render "fragments/new", position: fragment.position, dom_id: dom_id(fragment) %>
 </div>

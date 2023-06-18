@@ -16,8 +16,7 @@ module MarkdownRenderer
     def header(text, header_level)
       # Generate a unique ID based on the header text
       id = text.downcase.gsub(' ', '-').gsub(/[^\w-]/, '')
-
-      "<h#{header_level} id=\"#{id}\">#{text}</h#{header_level}>"
+      "<h#{header_level} id=\"#{rand(10_000)}\">#{text}</h#{header_level}>"
     end
   end
 

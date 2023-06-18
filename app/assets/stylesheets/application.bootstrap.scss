@@ -7,4 +7,6 @@
 
 @import 'tocbot/src/scss/tocbot';
 
-
+html {
+  scroll-behavior: auto !important;
+}

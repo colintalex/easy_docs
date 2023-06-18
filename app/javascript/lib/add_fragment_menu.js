@@ -58,7 +58,7 @@ export function show_add_fragment_menu(element) {
     interactiveBorder: 100,
     inlinePositioning: true,
     hideOnClick: true,
-    placement: "bottom",
+    placement: "left-start",
     offset: [0, 0],
     theme: "light",
     onHidden: (instance) => {
