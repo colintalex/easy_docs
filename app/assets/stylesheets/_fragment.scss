@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 
-.draggable {
+.draggable_fragment {
   turbo-frame {
     display: flex;
     flex-direction: column;
@@ -10,6 +10,15 @@
       width: 100%;
       display: flex;
 
+      .fragment {
+        padding: 0.25em 0.5em;
+        padding-bottom: 0;
+        border: 2px solid transparent;
+        border-radius: 4px;
+        display: inline-flex;
+        width: calc(100% - $fragment_btn_width);
+      }
+      
       .fragment-button-container {
         display: inline-flex;
         flex-direction: column;
@@ -37,19 +46,10 @@
         }
       }
     }
-
-    .fragment {
-      padding: 0.25em 0.5em;
-      padding-bottom: 0;
-      border: 2px solid transparent;
-      border-radius: 4px;
-      display: inline-flex;
-      width: calc(100% - $fragment_btn_width);
-    }
   }
 }
 
-.change-fragment-menu {
+.change-fragment-menu, .add-fragment-menu {
   background-color: lightgray;
   font-size: 12px !important;
 
@@ -76,34 +76,4 @@
       border: 1px solid black;
     }
   }
-}
-
-.add-fragment-menu {
-  background-color: lightgray;
-  font-size: 12px !important;
-  
-  .dropdown-content {
-    .dropdown-item {
-      padding: 5px;
-      
-      &:hover {
-        background-color: white;
-      }
-  
-      &.has-text-danger {
-        background-color: red;
-        color: white;
-        font-weight: 400;
-        &:hover {
-          font-weight: 800;
-          background-color: red;
-        }
-      }
-    }
-  
-    .dropdown-divider {
-      border: 1px solid black;
-    }
-  }
-
 }
