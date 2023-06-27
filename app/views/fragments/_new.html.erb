@@ -10,6 +10,7 @@
       <%= form.text_field :meta, hidden: true %>
       <%= form.text_field :position, hidden: true %>
       <%= form.hidden_field :dom_id, value: dom_id %>
+      <%= form.file_field :images, id: :images, multiple: true, accept: 'image/png,image/gif,image/jpeg', hidden: true, data: { action: "change->add-fragment#submitImages"} %>
       <%= form.submit("Create", hidden: true, data: { turbo: false }) %>
       <button
         class="button is-link is-round is-small"

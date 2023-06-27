@@ -19,5 +19,8 @@ application.register("editable", EditableController)
 import FormatController from "./format_controller"
 application.register("format", FormatController)
 
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
+
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
