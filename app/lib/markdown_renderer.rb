@@ -18,6 +18,10 @@ module MarkdownRenderer
       id = text.downcase.gsub(' ', '-').gsub(/[^\w-]/, '')
       "<h#{header_level} id=\"#{rand(10_000)}\">#{text}</h#{header_level}>"
     end
+
+    def image(link_or_id, style_and_css_or_alt, title) 
+      "<img src='#{link_or_id}' alt='#{title}' class='fragment-image'>"
+    end
   end
 
   def self.md_to_html(content, assigns = {})

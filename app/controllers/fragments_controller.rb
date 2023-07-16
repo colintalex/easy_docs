@@ -32,6 +32,6 @@ class FragmentsController < ApplicationController
   end
 
   def fragment_params
-    params.require(:fragment).permit(:element, :data, :meta, :position, :image, :dom_id)
+    params.require(:fragment).permit(:element, :data, :meta, :position, :dom_id, images: [])
   end
 end

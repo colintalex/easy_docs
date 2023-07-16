@@ -29,6 +29,7 @@
           <%= form.text_field :element, id: :element, hidden: true %>
           <%= form.text_field :meta, id: :meta, hidden: true %>
           <%= form.number_field :position, id: :position, hidden: true %>
+          <%= form.file_field :images, id: :images, multiple: true, accept: 'image/png,image/gif,image/jpeg', hidden: true %>
           <%= form.submit hidden: true %>
         <% end %>
       </div>

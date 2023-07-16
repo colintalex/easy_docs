@@ -38,7 +38,12 @@ export default class extends Controller {
 
   image(event) {
     event.preventDefault();
-    this.create_fragment("image", "Upload Image");
+    let el = this.element.querySelector("input#images");
+    el.click();
+  }
+
+  submitImages(event) {
+    this.create_fragment('image', '', '');
   }
 
   create_fragment(element, data, meta = "") {
@@ -50,6 +55,5 @@ export default class extends Controller {
       .querySelector("form")
       .querySelector('input[type="submit"]')
       .click();
-    
   }
 }
