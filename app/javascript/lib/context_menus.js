@@ -23,13 +23,13 @@ function format_selection_menu() {
 }
 
 export function show_format_selection_menu(element) {
-  let box = window.getSelection().getRangeAt(0).getBoundingClientRect();
+  let box = window.getSelection().getRangeAt(0).getBoundingClientRect(); // get text selection
   return tippy(element, {
     allowHTML: true,
     content: format_selection_menu(),
     interactive: true,
     interactiveBorder: 100,
-    inlinePositioning: true,
+    inlinePositioning: false,
     maxWidth: 250,
     getReferenceClientRect: () => box,
     onHidden: (instance) => {

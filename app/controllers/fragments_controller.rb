@@ -3,7 +3,7 @@ class FragmentsController < ApplicationController
   before_action :set_fragment, only: [:update, :destroy]
 
   def update
-    @fragment.update(fragment_params)
+    @fragment.update(fragment_params.except(:images))
 
     render @fragment
   end
@@ -32,6 +32,6 @@ class FragmentsController < ApplicationController
   end
 
   def fragment_params
-    params.require(:fragment).permit(:element, :data, :meta, :position, :dom_id, images: [])
+    params.require(:fragment).permit(:element, :data, :meta, :position, :dom_id, :classes, :parent_classes, images: [])
   end
 end

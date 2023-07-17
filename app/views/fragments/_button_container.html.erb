@@ -1,0 +1,11 @@
+<% is_image = fragment.element == 'image' %>
+<% menu = is_image ? 'showImageMenu' : 'showMenu' %>
+<div class="fragment-button-container" data-form-id="fragment_<%= fragment.id %>_form">
+  <button class="btn btn-secondary change_frag_menu_btn"
+    data-action='click->change-fragment#<%= menu %>'>
+    <i class="fa-solid fa-gear"></i>
+  </button>
+  <button class="btn btn-secondary sortable-handle">
+    <i class="fa fa-up-down"></i>
+  </button>
+</div>

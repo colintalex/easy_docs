@@ -19,8 +19,9 @@ module MarkdownRenderer
       "<h#{header_level} id=\"#{rand(10_000)}\">#{text}</h#{header_level}>"
     end
 
-    def image(link_or_id, style_and_css_or_alt, title) 
-      "<img src='#{link_or_id}' alt='#{title}' class='fragment-image'>"
+    def image(src_url, classes, alt)
+      classes, parent_classes = classes.split('_')
+      "<div class='#{parent_classes}'><img src='#{src_url}' alt='#{alt}' class='fragment-image #{classes}'></div>"
     end
   end
 

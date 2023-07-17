@@ -52,6 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_25_000923) do
   create_table "fragments", force: :cascade do |t|
     t.string "element", default: "p", null: false
     t.string "data", default: "", null: false
+    t.string "classes", default: "", null: false
+    t.string "parent_classes", default: "", null: false
     t.integer "position"
     t.string "meta", default: ""
     t.bigint "document_id"

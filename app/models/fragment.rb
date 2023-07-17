@@ -2,20 +2,24 @@
 #
 # Table name: fragments
 #
-#  id          :bigint           not null, primary key
-#  data        :string           default(""), not null
-#  element     :string           default("p"), not null
-#  meta        :string           default("")
-#  position    :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  document_id :bigint
+#  id             :bigint           not null, primary key
+#  classes        :string           default(""), not null
+#  data           :string           default(""), not null
+#  element        :string           default("p"), not null
+#  meta           :string           default("")
+#  parent_classes :string           default(""), not null
+#  position       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  document_id    :bigint
 #
 # Indexes
 #
 #  index_fragments_on_document_id  (document_id)
 #
 class Fragment < ApplicationRecord
+  include ActionView::Helpers
+
   belongs_to :document
   has_many_attached :images, dependent: :purge_later
 
@@ -29,13 +33,13 @@ class Fragment < ApplicationRecord
     "ol" => "%{data}",
     "ul" => "%{data}",
     "pre" => "```%{meta}\n%{data}\n```",
-    "image" => "![%{meta}](%{data})"
+    "image" => "![%{meta}](%{data} '%{classes}_%{parent_classes}')"
   }.freeze
 
   def to_md
     if element == 'image'
-      x = Rails.application.routes.url_helpers.rails_blob_path(images.blobs.first, only_path: true)
-      MD_MAPPING[element] % {data: x, meta: 'Test'}
+      path = Rails.application.routes.url_helpers.rails_blob_path(images.first.blob, only_path: true)
+      MD_MAPPING[element] % {data: path, meta: meta, classes: classes, parent_classes: parent_classes}
     else
       MD_MAPPING[element] % {data: data, meta: meta}
     end

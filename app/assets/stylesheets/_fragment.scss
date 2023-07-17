@@ -15,9 +15,20 @@
         padding-bottom: 0;
         border: 2px solid transparent;
         border-radius: 4px;
-        display: inline-flex;
+        display: inline-block;
         width: calc(100% - $fragment_btn_width);
+        height: auto;
+        z-index: 5;
+        position: relative;
 
+        .test-div {
+          height: 100%;
+          width: 100%;
+          background-color: rgba(255, 0, 0, 0.539);
+          position: absolute;
+          top: 0;
+          z-index: 10;
+          }
         .fragment-image {
           width: 600px;
         }
@@ -25,9 +36,9 @@
       
       .fragment-button-container {
         display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        
+        flex-direction: row;
+        height: auto;
+        align-items: center;
         .active {
           opacity: 1;
         }
@@ -38,15 +49,15 @@
           padding: 0;
           margin: 5px;
           font-size: 12px;
-          border-radius: 100%;
+          border-radius: 43%;
           opacity: 0.5;
           &:hover {
             opacity: 1;
           }
 
           &.sortable-handle {
-              cursor: move;
-            }
+            cursor: move;
+          }
         }
       }
     }
@@ -56,28 +67,76 @@
 .change-fragment-menu, .add-fragment-menu {
   background-color: lightgray;
   font-size: 12px !important;
+  border-radius: 4px;
+  box-shadow: 0.5px 1px 3px black;
 
   .dropdown-content {
+    padding: 5px;
     .dropdown-item {
       padding: 5px;
       
       &:hover {
-        background-color: white;
+        border-bottom: 1px solid white;
+        border-top: 1px solid white;
+        font-weight: 600;
+        margin-right: -2px; // prevent menu from expanding during highlight
       }
 
       &.has-text-danger {
-        background-color: red;
-        color: white;
-        font-weight: 400;
+        color: red;
+        font-weight: 500;
         &:hover {
-          font-weight: 800;
-          background-color: red;
+          font-weight: 700;
+          background-color: rgb(222, 1, 1);
+          border-bottom: 2px solid white;
+          color: white;
         }
       }
     }
 
     .dropdown-divider {
       border: 1px solid black;
+    }
+  }
+}
+
+.change-img-fragment-menu {
+  background-color: lightgray;
+  font-size: 12px !important;
+  border-radius: 4px;
+  box-shadow: 0.5px 1px 3px black;
+
+  .dropdown-content {
+    padding: 5px;
+    .dropdown-content-row {
+      display: flex;
+      flex-direction: row;
+      .dropdown-item {
+        padding: 5px;
+        
+        &:hover {
+          border-bottom: 1px solid white;
+          font-weight: 600;
+          margin-bottom: -2px;
+          margin-left: -1px; // prevent menu from expanding during highlight
+          margin-right: -1px; // prevent menu from expanding during highlight
+        }
+
+        &.has-text-danger {
+          color: red;
+          font-weight: 500;
+          &:hover {
+            font-weight: 700;
+            background-color: rgb(222, 1, 1);
+            border-bottom: 2px solid white;
+            color: white;
+          }
+        }
+      }
+
+      .dropdown-divider {
+        border: 1px solid black;
+      }
     }
   }
 }

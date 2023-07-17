@@ -3,14 +3,19 @@ import { turndownService } from "../lib/turndown_service"
 
 import rangy from "rangy";
 import "rangy/lib/rangy-textrange";
-import { show_format_selection_menu } from "../lib/context_menus";
+import {
+  show_format_selection_menu,
+} from "../lib/context_menus";
 import tocbot from "tocbot";
 
 
 export default class extends Controller {
   click(event) {
-    this.element.setAttribute("contenteditable", "true")
-    this.element.focus()
+    let img_el = this.element.querySelector("img");
+    if (!img_el){
+      this.element.setAttribute("contenteditable", "true")
+      this.element.focus()
+    }
   }
 
   blur(event) {
@@ -18,7 +23,7 @@ export default class extends Controller {
       this.element.removeAttribute("contenteditable");
     }
 
-    this.save();
+    this.saveFragment();
   }
 
   keyDown(event) {
@@ -28,12 +33,20 @@ export default class extends Controller {
     }
   }
 
-  save() {
+  saveFragment() {
     // Convert the element this controller is attached to
-    let markdown = turndownService().turndown(this.element)
+    let img_el = this.element.querySelector("img");
+    
+    if(img_el){
+      // TODO: Update fragment model to accomodate for custom classes, we are 'hotwiring' it here with just an image.
+      let data = arrayFrom(img_el.classList).filter((x) => x != "fragment-image").join(' ');
+      this.element.querySelector('#data').value = data;
+    }else{
+      debugger;
+      let markdown = turndownService().turndown(this.element)
+      this.element.querySelector("#data").value = markdown;
+    }
 
-    // // Dynamically fill out the form data and submit
-    this.element.querySelector("#data").value = markdown
     this.element.querySelector("form").requestSubmit();
     tocbot.refresh();
   }
@@ -44,15 +57,12 @@ export default class extends Controller {
 
   mouseUp(event) {
     // get the current selection from window
-    let selection = rangy.getSelection()
-
+    let selection = rangy.getSelection();
     // we can return early when the selection is collapsed
     if (selection.isCollapsed) { return }
-
     // Trim whitespace from the selection
     selection.trim()
-
     // show format selection menu
     show_format_selection_menu(this.element)
-  }  
+  }
 }

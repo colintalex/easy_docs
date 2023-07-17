@@ -38,7 +38,7 @@ const add_fragment_image = `
 function add_fragment_menu() {
   return `
   <div class="add-fragment-menu">
-    <div class="dropdown-content context-menu">
+    <div class="dropdown-content context-menu list-group">
       ${add_fragment_h1}
       ${add_fragment_h2}
       ${add_fragment_h3}

@@ -36,6 +36,31 @@ const change_fragment_delete = `
 </a>
 `;
 
+const img_frag_right = `
+<a class="btn btn-primary" data-controller="image-fragment" data-action="mousedown->image-fragment#floatRight">
+  Right
+</a>
+`;
+
+const img_frag_left = `
+<a class="btn btn-primary" data-controller="image-fragment" data-action="mousedown->image-fragment#floatLeft">
+  Left
+</a>
+`;
+
+const img_frag_center = `
+<a class="btn btn-primary" data-controller="image-fragment" data-action="mousedown->image-fragment#floatCenter">
+  Center
+</a>
+`;
+function imgFragAlign(position){
+  return `
+    <a class="btn btn-primary" data-controller="image-fragment" data-action="mousedown->image-fragment#float${position}">
+      ${position}
+    </a>
+    `
+}
+
 function change_fragment_menu() {
   return `
   <div class="change-fragment-menu">
@@ -52,6 +77,23 @@ function change_fragment_menu() {
   `;
 }
 
+function change_img_fragment_menu(form_id) {
+    return `
+  <div class="change-img-fragment-menu">
+    <div class="dropdown-content context-menu" data-form-id="${form_id}">
+      <div class="btn-group">
+      ${imgFragAlign("Left")}
+      ${imgFragAlign("Center")}
+      ${imgFragAlign("Right")}
+      </div>
+      <div class="dropdown-content-row">
+      ${change_fragment_delete}
+      </div>
+    </div>
+  </div>
+  `;
+}
+
 export function show_change_fragment_menu(element) {
   return tippy(element, {
     allowHTML: true,
@@ -59,8 +101,24 @@ export function show_change_fragment_menu(element) {
     interactive: true,
     interactiveBorder: 100,
     hideOnClick: true,
-    placement: "left",
-    offset: [60, 0],
+    placement: "bottom",
+    offset: [-0, 0],
+    theme: "dark",
+    onHidden: (instance) => {
+      instance.destroy();
+    },
+  }).show();
+}
+
+export function show_change_img_fragment_menu(element, form_id) {
+  return tippy(element, {
+    allowHTML: true,
+    content: change_img_fragment_menu(form_id),
+    interactive: true,
+    interactiveBorder: 100,
+    hideOnClick: true,
+    placement: "bottom",
+    offset: [-0, 0],
     theme: "dark",
     onHidden: (instance) => {
       instance.destroy();
