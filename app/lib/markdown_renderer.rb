@@ -21,7 +21,7 @@ module MarkdownRenderer
 
     def image(src_url, classes, alt)
       classes, parent_classes = classes.split('_')
-      "<div class='#{parent_classes}'><img src='#{src_url}' alt='#{alt}' class='fragment-image #{classes}'></div>"
+      "<div class='#{parent_classes}'><img src='#{src_url}' alt='#{alt || 'TestAlt'}' title='TestTitle' class='fragment-image #{classes}'></div>"
     end
   end
 

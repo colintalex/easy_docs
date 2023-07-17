@@ -39,10 +39,11 @@ export default class extends Controller {
     
     if(img_el){
       // TODO: Update fragment model to accomodate for custom classes, we are 'hotwiring' it here with just an image.
-      let data = arrayFrom(img_el.classList).filter((x) => x != "fragment-image").join(' ');
-      this.element.querySelector('#data').value = data;
+      let data       = arrayFrom(img_el.classList).filter((x) => x != "fragment-image").join(' ');
+      let parentData = arrayFrom(img_el.parentElement.classList).filter((x) => x != "fragment-image").join(' ');
+      this.element.querySelector('#classes').value = data;
+      this.element.querySelector("#parent_classes").value = parentData;
     }else{
-      debugger;
       let markdown = turndownService().turndown(this.element)
       this.element.querySelector("#data").value = markdown;
     }
