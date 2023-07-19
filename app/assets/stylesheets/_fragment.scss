@@ -32,6 +32,11 @@
         .fragment-image {
           width: 600px;
           max-height: 100vh;
+          &.rounded-0{ border-radius: 0;}
+          &.rounded-16{ border-radius: 16px;}
+          &.rounded-24{ border-radius: 24px;}
+          &.rounded-36{ border-radius: 36px;}
+          &.reflect-vertically { transform: scaleX(-1);}
         }
       }
       
@@ -106,6 +111,16 @@
   font-size: 12px !important;
   border-radius: 4px;
   box-shadow: 0.5px 1px 3px black;
+  width: min-content;
+
+  .btn-group {
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    a {
+      font-size: 10px;
+    }
+  }
 
   .dropdown-content {
     padding: 5px;
