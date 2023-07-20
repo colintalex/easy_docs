@@ -54,7 +54,7 @@ const img_frag_center = `
   Center
 </a>
 `;
-function imgFragAlign(position, current_classes) {
+function imgFragAlign(position, current_classes, form_id) {
   const MAPPING = {
     "text-start": "Left",
     "text-center": "Center",
@@ -64,18 +64,18 @@ function imgFragAlign(position, current_classes) {
   let reg_matches = current_classes.match(/\btext-\w+\b/g);
   let active = reg_matches != null && MAPPING[reg_matches] == position ? "active" : "";
   return `
-    <a class="btn btn-primary ${active}" data-controller="image-fragment" data-action="mousedown->image-fragment#float${position}">
+    <a class="btn btn-primary ${active}" data-form-id="${form_id}"data-action="mousedown->image-fragment#float${position}">
       ${position}
     </a>
     `;
 }
 
-function imgFragRoundedBorderPx(percent, current_classes){
+function imgFragRoundedBorderPx(percent, current_classes, form_id){
   let reg_matches = current_classes.match(/\brounded-\w+\b/g);
   let active = reg_matches != null && reg_matches[0].includes(percent) ? "active" : "";
 
   return `
-    <a class="btn btn-primary ${active}" data-controller="image-fragment" data-percent="${percent}" data-action="mousedown->image-fragment#roundedImage">
+    <a class="btn btn-primary ${active}" data-percent="${percent}" data-form-id="${form_id}"data-action="mousedown->image-fragment#roundedImage">
       ${percent}px
     </a>
   `;
@@ -107,22 +107,22 @@ function change_img_fragment_menu(form_id) {
 
     return `
   <div class="change-img-fragment-menu">
-    <div class="dropdown-content context-menu" data-form-id="${form_id}">
+    <div class="dropdown-content context-menu" data-controller="image-fragment" data-form-id="${form_id}">
       <div class="btn-group">
-      ${imgFragAlign("Left", parent_classes)}
-      ${imgFragAlign("Center", parent_classes)}
-      ${imgFragAlign("Right", parent_classes)}
+      ${imgFragAlign("Left", parent_classes, form_id)}
+      ${imgFragAlign("Center", parent_classes, form_id)}
+      ${imgFragAlign("Right", parent_classes, form_id)}
       </div>
       <div class="btn-group">
-      ${imgFragRoundedBorderPx(0, current_classes)}
-      ${imgFragRoundedBorderPx(16, current_classes)}
-      ${imgFragRoundedBorderPx(24, current_classes)}
-      ${imgFragRoundedBorderPx(36, current_classes)}
+      ${imgFragRoundedBorderPx(0, current_classes, form_id)}
+      ${imgFragRoundedBorderPx(16, current_classes, form_id)}
+      ${imgFragRoundedBorderPx(24, current_classes, form_id)}
+      ${imgFragRoundedBorderPx(36, current_classes, form_id)}
       </div>
-      <div class="btn-group" data-controller="image-fragment">
-        <a class="btn btn-primary" href="#">Rotate CW</a>
-        <a class="btn btn-primary" href="#">Rotate CCW</a>
-        <a class="btn btn-primary" href="#" data-action="mousedown->image-fragment#reflect">Flip</a>
+      <div class="btn-group">
+      <a class="btn btn-primary" data-form-id="${form_id}" href="#" data-action="mousedown->image-fragment#rotateCW">Rotate CW</a>
+      <a class="btn btn-primary" data-form-id="${form_id}" href="#" data-action="mousedown->image-fragment#rotateCCW">Rotate CCW</a>
+        <a class="btn btn-primary" data-form-id="${form_id}" href="#" data-action="mousedown->image-fragment#reflect">Flip</a>
       </div>
       <div class="btn-group">
       ${change_fragment_delete}

@@ -32,10 +32,15 @@
         .fragment-image {
           width: 600px;
           max-height: 100vh;
+          transform: rotate(var(--deg, 0));
           &.rounded-0{ border-radius: 0;}
           &.rounded-16{ border-radius: 16px;}
           &.rounded-24{ border-radius: 24px;}
           &.rounded-36{ border-radius: 36px;}
+          &.rotate-0{ transform: rotate(0deg) !important;}
+          &.rotate-90{ transform: rotate(90deg) !important;}
+          &.rotate-180{ transform: rotate(180deg) !important;}
+          &.rotate-270{ transform: rotate(270deg) !important;}
           &.reflect-vertically { transform: scaleX(-1);}
         }
       }
