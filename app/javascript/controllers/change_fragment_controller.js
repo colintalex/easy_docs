@@ -1,7 +1,10 @@
 import { Controller } from "@hotwired/stimulus";
 import { navigator } from "@hotwired/turbo";
 
-import { show_change_fragment_menu } from "../lib/change_fragment_menu";
+import {
+  show_change_fragment_menu,
+  show_change_img_fragment_menu,
+} from "../lib/change_fragment_menu";
 import tocbot from "tocbot";
 
 export default class extends Controller {
@@ -28,7 +31,13 @@ export default class extends Controller {
 
   showMenu(event) {
     event.preventDefault();
-    show_change_fragment_menu(this.element.querySelector(".frag_menu_btn"));
+    show_change_fragment_menu(this.element.querySelector(".change_frag_menu_btn"));
+  }
+
+  showImageMenu(event) {
+    event.preventDefault();
+    let form_id = this.element.querySelector("form").id;
+    show_change_img_fragment_menu(this.element.querySelector(".change_frag_menu_btn"), form_id);
   }
 
   h1(event) {
