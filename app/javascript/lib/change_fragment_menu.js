@@ -32,7 +32,7 @@ const change_fragment_pre = `
 `;
 
 const change_fragment_delete = `
-<a class="btn btn-danger has-text-danger" data-action="mousedown->change-fragment#delete">
+<a class="dropdown-item has-text-danger" data-action="mousedown->change-fragment#delete">
   Delete
 </a>
 `;
@@ -64,7 +64,7 @@ function imgFragAlign(position, current_classes, form_id) {
   let reg_matches = current_classes.match(/\btext-\w+\b/g);
   let active = reg_matches != null && MAPPING[reg_matches] == position ? "active" : "";
   return `
-    <a class="btn btn-primary ${active}" data-form-id="${form_id}"data-action="mousedown->image-fragment#float${position}">
+    <a class="btn menu-btn ${active}" data-form-id="${form_id}"data-action="mousedown->image-fragment#float${position}">
       ${position}
     </a>
     `;
@@ -75,7 +75,7 @@ function imgFragRoundedBorderPx(percent, current_classes, form_id){
   let active = reg_matches != null && reg_matches[0].includes(percent) ? "active" : "";
 
   return `
-    <a class="btn btn-primary ${active}" data-percent="${percent}" data-form-id="${form_id}"data-action="mousedown->image-fragment#roundedImage">
+    <a class="btn menu-btn ${active}" data-percent="${percent}" data-form-id="${form_id}"data-action="mousedown->image-fragment#roundedImage">
       ${percent}px
     </a>
   `;
@@ -120,9 +120,9 @@ function change_img_fragment_menu(form_id) {
       ${imgFragRoundedBorderPx(36, current_classes, form_id)}
       </div>
       <div class="btn-group">
-      <a class="btn btn-primary" data-form-id="${form_id}" href="#" data-action="mousedown->image-fragment#rotateCW">Rotate CW</a>
-      <a class="btn btn-primary" data-form-id="${form_id}" href="#" data-action="mousedown->image-fragment#rotateCCW">Rotate CCW</a>
-        <a class="btn btn-primary" data-form-id="${form_id}" href="#" data-action="mousedown->image-fragment#reflect">Flip</a>
+        <a class="btn menu-btn" data-form-id="${form_id}" href="#" data-action="mousedown->image-fragment#rotateCW">Rotate CW</a>
+        <a class="btn menu-btn" data-form-id="${form_id}" href="#" data-action="mousedown->image-fragment#rotateCCW">Rotate CCW</a>
+        <a class="btn menu-btn" data-form-id="${form_id}" href="#" data-action="mousedown->image-fragment#reflect">Flip</a>
       </div>
       <div class="btn-group">
       ${change_fragment_delete}
@@ -139,7 +139,7 @@ export function show_change_fragment_menu(element) {
     interactive: true,
     interactiveBorder: 100,
     hideOnClick: true,
-    placement: "bottom",
+    placement: "left-start",
     offset: [-0, 0],
     theme: "dark",
     onHidden: (instance) => {

@@ -2,11 +2,11 @@
   <aside class="js-toc">
   </aside>
   <main class="section">
+  <div id="document_header"class="bg-secondary mb-5 p-3 container-fluid">
+    <h1>Title: <%= @document.title %></h1>
+    <h5>Notes: <%= @document.note %></h5>
+  </div>
     <div class="article container">
-      <div class="bg-secondary mb-5 p-3">
-        <h1>Title: <%= @document.title %></h1>
-        <h5>Notes: <%= @document.note %></h5>
-      </div>
       <div class="fragments-container" data-controller="sortable">
         <% @document.fragments.each do |fragment| %>
           <%= render fragment %>
