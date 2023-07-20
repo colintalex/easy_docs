@@ -32,7 +32,7 @@ const change_fragment_pre = `
 `;
 
 const change_fragment_delete = `
-<a class="dropdown-item has-text-danger" data-action="mousedown->change-fragment#delete">
+<a class="btn menu-btn dropdown-item has-text-danger" data-action="mousedown->change-fragment#delete">
   Delete
 </a>
 `;
