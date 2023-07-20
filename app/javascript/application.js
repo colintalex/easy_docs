@@ -11,7 +11,7 @@ tocbot.init({
   headingSelector: "h1, h2, h3",
   scrollSmoothOffset: -150,
   hasInnerContainers: true,
-  headingsOffset: 150
+  headingsOffset: 150,
 });
 
 document.documentElement.addEventListener("turbo:frame-render", function (e) {
