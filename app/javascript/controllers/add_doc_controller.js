@@ -9,6 +9,7 @@ export default class extends Controller {
   }
   cancelNewCard(event) {
     event.preventDefault();
+    this.element.parentElement.reset();
     $("#form_wrapper").addClass('hiddenn');
     $("#add_new_doc_btn").removeClass('hiddenn');
   }
@@ -16,5 +17,6 @@ export default class extends Controller {
   save(event){
     event.preventDefault();
     this.element.parentElement.requestSubmit();
+    this.cancelNewCard(event);
   }
 }

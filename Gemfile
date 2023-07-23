@@ -6,7 +6,7 @@ ruby "3.0.5"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
 gem "acts_as_list", "~> 1.1"
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 gem "cssbundling-rails"
 gem "foreman", "~> 0.87.2"
 gem "jbuilder"
@@ -27,7 +27,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'annotate'
 
-# gem "sassc-rails"
+gem "sassc-rails"
 
 gem "image_processing", "~> 1.2"
 

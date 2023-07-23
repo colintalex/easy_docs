@@ -1,7 +1,7 @@
 <div class="add-fragment" data-controller="add-fragment">
   <div class="add-fragment-button-container">
     <%= form_with(
-      model: [@document, Fragment.new(
+      model: [:admin, @document, Fragment.new(
         element: "p",
         data: "edit me",
         position: (position + 1))], class: 'add-fragment-form') do |form| %>

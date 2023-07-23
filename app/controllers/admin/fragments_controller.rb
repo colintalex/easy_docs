@@ -1,4 +1,4 @@
-class FragmentsController < ApplicationController
+class Admin::FragmentsController < ApplicationController
   before_action :set_document
   before_action :set_fragment, only: [:update, :destroy]
 
@@ -13,7 +13,7 @@ class FragmentsController < ApplicationController
     @fragment.save
     @dom_id = fragment_params[:dom_id]
 
-    redirect_to(document_path(@document, anchor: @dom_id))
+    redirect_to(admin_document_path(@document, anchor: @dom_id))
   end
 
   def destroy
