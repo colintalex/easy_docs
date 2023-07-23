@@ -12,8 +12,6 @@
         <% @document.fragments.each do |fragment| %>
           <%= render fragment %>
         <% end %>
-      <% else %>
-        <%= render "fragments/new", position: 0, dom_id: dom_id(Fragment.new) %>
       <% end %>
       </div>
     </div>
