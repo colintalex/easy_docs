@@ -1,5 +1,6 @@
-<div class="card_grid">
-  <% @documents.each do |doc| %>
-    <%= render partial: 'documents/document', locals: { document: doc } %>
+<%= turbo_frame_tag "documents", class: 'card_grid' do %>
+    <% @documents.each do |doc| %>
+      <%= render partial: 'documents/document', locals: { document: doc } %>
+    <% end %>
   <% end %>
 </div>

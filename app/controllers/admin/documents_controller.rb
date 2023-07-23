@@ -10,8 +10,8 @@ class Admin::DocumentsController < ApplicationController
     @document = Document.new(document_params)
     @document.save
 
-    render turbo_stream: turbo_stream.prepend(
-        "documents",
+    render turbo_stream: turbo_stream.after(
+        "new-doc",
         partial: "documents/document",
         locals: { document: @document }
       )
