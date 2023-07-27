@@ -79,20 +79,6 @@ EasyDocs offers role-based access control for viewing documents. Here are the di
 
 - **Public User**: Public users can access documents marked as public by the document creator.
 
-## Contributing
-
-We welcome contributions to enhance EasyDocs. To contribute:
-
-1. Fork the repository on GitHub.
-
-2. Create a new branch from the `main` branch for your changes.
-
-3. Make your modifications and improvements.
-
-4. Commit and push your changes to your forked repository.
-
-5. Submit a pull request, and we will review your changes.
-
 ## License
 
 EasyDocs is open-source software licensed under the [MIT License](LICENSE).

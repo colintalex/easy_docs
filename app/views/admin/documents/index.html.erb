@@ -4,14 +4,14 @@
     <div class="card-body">
       <h5>Add New Document</h5>
         <div data-controller="add-doc" data-action="click->add-doc#showNewCard">
-          <i id="add_new_doc_btn"class="fa fa-plus"></i>
+          <i id="add_new_doc_btn" class="fa fa-plus"></i>
           <div id="form_wrapper" class="hiddenn">
             <%= render partial: 'admin/documents/form', locals: { document: Document.new} %>
           </div>
         </div>
     </div>
   <% end %>
-  
+
   <% @documents.each do |doc| %>
     <%= render partial: 'admin/documents/document', locals: { document: doc } %>
   <% end %>
