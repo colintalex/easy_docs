@@ -3,6 +3,8 @@
 
 ![EasyDocs Logo](./app/assets/images/logo.png)
 
+![EasyDocs PReview](./public/edit_docs_preview.png)
+
 ---
 
 Welcome to EasyDocs, the WYSIWYG Documentation Platform! This web application is designed to simplify the process of creating and managing documentation for projects, products, or any content that requires structured information. The platform offers a WYSIWYG-like (What You See Is What You Get) interface, allowing permitted users to easily create and edit documentation. Additionally, it supports role-based viewing, enabling you to control access to specific documents based on user roles, with some documents accessible to the public and others restricted to authorized users only.
