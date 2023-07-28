@@ -35,6 +35,9 @@ doc.fragments.create(element: "p", data: ipsum)
 doc.fragments.create(element: "image", data: "", classes: 'rounded-24', parent_classes: 'text-center').images.attach(io: File.open(image_files[2]), filename: "seed_img3")
 doc.fragments.create(element: "p", data: ipsum)
 doc.fragments.create(element: "h1", data: "Where")
+
+
+
 doc.fragments.create(element: "p", data: ipsum)
 doc.fragments.create(element: "p", data: ipsum)
 doc.fragments.create(element: "h1", data: "why")
