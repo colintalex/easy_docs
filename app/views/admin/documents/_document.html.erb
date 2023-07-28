@@ -1,0 +1,20 @@
+<%= turbo_frame_tag dom_id(document) do %>
+  <div class="card doc_card">
+    <div class="card-body">
+      <h5 class="card-title"><%= document.title %></h5>
+      <p class="card-text"><%= document.note %></p>
+      <%= link_to 'Edit This Document', admin_document_path(document), target: '_top', class: 'btn btn-primary' %>
+    </div>
+      <%= link_to(
+        admin_document_path(document),
+        method: :delete,
+        data: {
+          turbo_method: :delete,
+          turbo_frame: :documents
+        },
+        hidden: false
+        ) do  %>
+        <i class="fa fa-trash red float-end"></i>
+        <% end%>
+  </div>
+<% end %>

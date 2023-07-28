@@ -13,6 +13,11 @@ html {
   scroll-behavior: auto !important;
 }
 
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #e4e4e4;
+}
 img {
   max-height: 100vh;
 }

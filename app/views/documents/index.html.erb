@@ -1,15 +1,4 @@
 <%= turbo_frame_tag "documents", class: 'card_grid' do %>
-  <div class="card doc_card">
-    <div class="card-body">
-      <h5>Add New Document</h5>
-        <div data-controller="add-doc" data-action="click->add-doc#showNewCard">
-          <i id="add_new_doc_btn"class="fa fa-plus"></i>
-          <div id="form_wrapper" class="hiddenn">
-            <%= render partial: 'documents/form', locals: { document: Document.new} %>
-          </div>
-        </div>
-    </div>
-  </div>
     <% @documents.each do |doc| %>
       <%= render partial: 'documents/document', locals: { document: doc } %>
     <% end %>

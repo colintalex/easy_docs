@@ -12,6 +12,8 @@
         <% @document.fragments.each do |fragment| %>
           <%= render fragment %>
         <% end %>
+      <% else %>
+        <%= render "admin/fragments/new", position: 0, dom_id: dom_id(Fragment.new) %>
       <% end %>
       </div>
     </div>
