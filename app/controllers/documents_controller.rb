@@ -1,7 +1,6 @@
 class DocumentsController < ApplicationController
   def index
-    # @documents = Document.where(view_access: 'public')
-    @documents = Document.all
+    @documents = Document.where(access_level: current_access_level_names)
     render :index
   end
 

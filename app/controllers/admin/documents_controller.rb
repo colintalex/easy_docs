@@ -3,7 +3,7 @@ class Admin::DocumentsController < ApplicationController
   before_action :set_document, only: %i[ show edit update destroy markdown]
 
   def index
-    @documents = Document.all
+    @documents = Document.all.order(:access_level)
   end
 
   def create
@@ -15,6 +15,12 @@ class Admin::DocumentsController < ApplicationController
         partial: "documents/document",
         locals: { document: @document }
       )
+  end
+
+  def update
+    if @document.update(document_params)
+      render turbo_stream: turbo_stream.update(@document)
+    end
   end
 
   def destroy
@@ -32,6 +38,6 @@ class Admin::DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:title, :note)
+    params.require(:document).permit(:title, :note, :access_level)
   end
 end
