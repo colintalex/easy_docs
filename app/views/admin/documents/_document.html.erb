@@ -5,6 +5,10 @@
       <p class="card-text"><%= document.note %></p>
       <%= link_to 'Edit This Document', admin_document_path(document), target: '_top', class: 'btn btn-primary' %>
     </div>
+      <%= form_with model: [:admin, document] do |form| %>
+        <%= form.select :access_level, Document.access_levels.keys, selected: document.access_level %>
+        <%= form.submit 'Submit' %>
+      <% end %>
       <%= link_to(
         admin_document_path(document),
         method: :delete,

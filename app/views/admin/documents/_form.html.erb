@@ -4,6 +4,8 @@
   <%= form.text_field :title, id: :title, class: 'form-control' %>
   <%= form.label :note, class: 'form-label float-start' %>
   <%= form.text_field :note, id: :note, class: 'form-control' %>
+  <%= form.label :access_level, class: 'form-label float-start' %>
+  <%= form.select :access_level, Role.tiers, id: :note, class: 'form-control' %>
   <%= form.submit 'Create', class: 'btn btn-secondary mt-3', data: {'controller': 'add-doc', 'action': 'click->add-doc#save'} %>
   <%= form.button 'Cancel', class: 'btn btn-secondary mt-3', data: {'controller': 'add-doc', 'action': 'click->add-doc#cancelNewCard'} %>
 <% end %>

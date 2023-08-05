@@ -3,6 +3,7 @@ class CreateDocuments < ActiveRecord::Migration[7.0]
     create_table :documents do |t|
       t.string :title
       t.string :note
+      t.integer :access_level
 
       t.timestamps
     end

@@ -2,7 +2,7 @@ import tippy from "tippy.js";
 
 function format_selection_menu() {
   return `
-  <div class="p-1" data-controller="format">
+  <div class="format-selection-menu p-1" data-controller="format">
     <a class="has-text-white" data-action="mousedown->format#bold">
       Bold
     </a>

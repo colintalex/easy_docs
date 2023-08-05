@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_062148) do
   create_table "documents", force: :cascade do |t|
     t.string "title"
     t.string "note"
+    t.integer "access_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_062148) do
 
   create_table "roles", force: :cascade do |t|
     t.string "display_name"
-    t.integer "name"
+    t.integer "tier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
